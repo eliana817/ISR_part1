@@ -1,0 +1,2 @@
+- name: Configure IP addresses on internal UTM
+  hosts: vyos
