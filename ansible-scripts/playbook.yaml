@@ -1,3 +1,5 @@
+######### Vyos #############
+
 - name: Configure Vyos
   hosts: vyos
   connection: network_cli
@@ -7,6 +9,8 @@
 
   roles:
     - vyos
+
+########### OPNsense ###############
 
 - name: Configure OPNsense 
   hosts: localhost
