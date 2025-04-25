@@ -1,6 +1,6 @@
 - name: Firewall for client to admin
   vyos_config:
-    line:
+    lines:
       - set firewall ipv4 name CLIENT_TO_ADMIN default-action 'accept'
       - set firewall ipv4 name CLIENT_TO_ADMIN rule 10 action 'drop'
       - set firewall ipv4 name CLIENT_TO_ADMIN rule 10 source address '192.168.6.0/24'
