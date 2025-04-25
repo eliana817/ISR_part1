@@ -1,0 +1,11 @@
+- name: Set ip
+  include_tasks: ip.yaml
+
+- name: Set nat rule
+  include_tasks: nat.yaml
+
+- name: Set dns
+  include_tasks: dns.yaml
+
+- name: Set vlans dhcp
+  include_tasks: vlans.yaml

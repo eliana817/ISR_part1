@@ -1,4 +1,4 @@
-# ISR_part1
+# Prerequisites
 
 The folder **ansible-scripts** which contains the structure for running ansible automation is stored in the home directory. 
 
@@ -6,4 +6,10 @@ Since this is a custom directory and not the default ansible directory we export
 
 ```bash
 export ANSIBLE_CONFIG=~/ansible-scripts/ansible.cfg
+```
+
+For configuring Vyos we will need to download the necessary module on ansible by doing:
+
+```bash
+ansible-galaxy collection install vyos.vyos
 ```

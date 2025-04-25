@@ -1,8 +1,17 @@
-- name: Configure IP addresses on internal UTM
+- name: Configure Vyos
   hosts: vyos
+  connection: network_cli
+  gather_facts: no
+  collections:
+    - vyos.vyos
 
-- name: Configure IP addresses on peripheral UTM
-  hosts: opnsense
+  roles:
+    - vyos
 
-- name: Configure IP addresses on internal UTM
-  hosts: vyos
+- name: Configure OPNsense 
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  roles:
+    - opnsense

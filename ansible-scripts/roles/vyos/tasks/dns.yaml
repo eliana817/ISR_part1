@@ -1,0 +1,8 @@
+- name: DNS for vlans
+  vyos_config:
+    lines:
+      - set service dns forwarding listen-address 192.168.6.1
+      - set service dns forwarding listen-address 192.168.7.1
+      - set service dns forwarding name-server 8.8.8.8
+      - set service dns forwarding name-server 1.1.1.1
+    save: true

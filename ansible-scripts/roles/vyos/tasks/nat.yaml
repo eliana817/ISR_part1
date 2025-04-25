@@ -1,0 +1,12 @@
+- name: Configure NAT for ssh to opnsense
+  vyos_config:
+    lines:
+      - set nat destination rule 100 description 'Opnsense ssh'
+      - set nat destination rule 100 destination address 192.168.7.1
+      - set nat destination rule 100 destination port 2222
+      - set nat destination rule 100 translation address 192.168.5.1
+      - set nat destination rule 100 translation port 22
+      - set nat destination rule 100 inbound-interface name eth1
+      - set nat destination rule 100 protocol tcp
+    save: true
+    
