@@ -13,5 +13,39 @@
   connection: local
   gather_facts: no
 
+  vars:
+    api_key: "U6sRNtnXs/09XNt02NmI69+IMCTq/AmpVgQflrSoLsiwm7GcoZ4md1sZKO9sQDxLva+24142FVEDu3g"
+    api_secret: "vCEgoLk7iUwi2YhFxcKpQag4huxDPPMu6dx0g7FJNVK+J1TgbVhKxCMr17sfQ09ht4s-kYlXqVe8jnpKA"
+    opnsense_host: "https://192.168.5.1/api"
+
+    firewall_rules:
+    # ADMIN and VLANS (because we are using NAT) - will add vyos rule to control access from clients to admin
+
+    - interface: "OPT2"
+      source: "192.168.5.0/24"
+      destination: "any"
+      action: "pass"
+      description: "Allow NATed access from VyOS"
+
+    # DMZ
+
+    - interface: "OPT1"
+      source: "192.168.4.0/24"
+      destination: "192.168.7.0/24"
+      action: "block"
+      description: "DMZ to Admin blocked"
+
+    - interface: "OPT1"
+      source: "192.168.4.0/24"
+      destination: "192.168.6.0/24"
+      action: "block"
+      description: "DMZ to Client blocked"
+
+    - interface: "OPT1"
+      source: "192.168.4.0/24"
+      destination: "192.168.5.0/24"
+      action: "block"
+      description: "DMZ to WAN blocked"
+
   roles:
     - opnsense

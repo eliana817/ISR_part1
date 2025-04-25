@@ -9,3 +9,6 @@
 
 - name: Set vlans dhcp
   include_tasks: vlans.yaml
+
+- name: Set firewall
+  include_tasks: config.yaml

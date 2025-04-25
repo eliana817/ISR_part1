@@ -1,2 +1,26 @@
-- name: DMZ firewall
-  connection: local
+- name: Opnsense firewall
+  uri:
+    url: "{{ opnsense_host }}/firewall/rule"
+    method: POST
+    user: "{{ api_key }}"
+    password: "{{ api_secret }}"
+    force_basic_auth: yes
+    validate_certs: no
+    body_format: json
+    headers:
+      Content-Type: "application/json"
+    body: |
+      {
+        "rule": {
+          "interface": "{{ item.interface }}",
+          "protocol": "any",
+          "source": { "net": "{{ item.source }}" },
+          "destination": { "net": "{{ item.destination }}" },
+          "action": "{{ item.action }}",
+          "log": true,
+          "enabled": true,
+          "description": "{{ item.description }}"
+        }
+      }
+  loop: "{{ firewall_rules }}"
+  register: result
