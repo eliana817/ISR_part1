@@ -1,2 +1,8 @@
 - name: Configure IP addresses on internal UTM
   hosts: vyos
+
+- name: Configure IP addresses on peripheral UTM
+  hosts: opnsense
+
+- name: Configure IP addresses on internal UTM
+  hosts: vyos
