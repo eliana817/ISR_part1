@@ -47,5 +47,7 @@
       action: "block"
       description: "DMZ to WAN blocked"
 
+    suricata_config_file: "/usr/local/etc/suricata/suricata.yaml"
+
   roles:
     - opnsense
