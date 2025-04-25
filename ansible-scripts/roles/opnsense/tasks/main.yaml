@@ -1,11 +1,2 @@
-- name: Set ip
-  include_tasks: ip.yaml
-
 - name: Firewall config
   include_tasks: config.yaml
-
-- name: Ids config
-  include_tasks: ids.yaml
-
-- name: Proxy setup
-  include_tasks: proxy.yaml
